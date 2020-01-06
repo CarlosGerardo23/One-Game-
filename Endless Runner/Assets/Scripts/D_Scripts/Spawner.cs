@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour
         {
             int index = Random.Range(0, obstacles.Length-1);
             Debug.Log(index);
-            Instantiate(obstacles[index], transform.position, Quaternion.identity);
+            Instantiate(obstacles[index], transform.position, obstacles[index].transform.rotation);
             actualTimeBetween = timeBetweenSpawns;
         }
         else

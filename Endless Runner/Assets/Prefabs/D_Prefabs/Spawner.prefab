@@ -45,4 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenSpawns: 2
   obstacles:
-  - {fileID: 5173037532672027430, guid: bc410ef259204504d816501056fc1f2c, type: 3}
+  - {fileID: 7163352608098055145, guid: 22312f45509ff894688cf44ce3ad7cd6, type: 3}

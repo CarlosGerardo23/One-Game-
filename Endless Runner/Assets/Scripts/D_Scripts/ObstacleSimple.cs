@@ -8,7 +8,12 @@ public class ObstacleSimple : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector2.left * speed * Time.deltaTime);
+        transform.Translate(Vector2.left * speed * Time.deltaTime, Space.World);
+        if (transform.rotation.z < 0)
+        {
+            transform.Rotate(Vector3.forward * speed * Time.deltaTime * 25);
+        }
+        
     }
 
     private void OnBecameInvisible()
