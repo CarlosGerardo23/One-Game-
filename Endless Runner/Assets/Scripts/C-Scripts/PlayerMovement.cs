@@ -14,9 +14,10 @@ public class PlayerMovement : MonoBehaviour
     enum Plataform { ANDROID, UNITY }
 
     Plataform currentPlataform;
-    int currentsJumps = 1;
+    [SerializeField] int currentsJumps = 0;
     Rigidbody2D rb;
 
+    bool jumping;
     void Start()
     {
 #if UNITY_EDITOR
@@ -42,10 +43,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckGorund()
     {
-        if (gameObject.transform.position.y <= groundLimit)
+        if (gameObject.transform.position.y <= groundLimit && jumping)
         {
 
-            currentsJumps = 1;
+            currentsJumps = 0;
+            jumping = false;
         }
     }
 
@@ -68,15 +70,21 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.UpArrow) && currentsJumps < numberOfJumps)
         {
-            float currentJumpVelocity=jumpVelocity/currentsJumps;
+            StartCoroutine(CanCheckGround());
             currentsJumps += 1;
+
+            float currentJumpVelocity = jumpVelocity / currentsJumps;
+
+
             rb.velocity = Vector2.up * currentJumpVelocity;
             Jump();
         }
-        /* if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
 
-        } */
+    }
+    private IEnumerator CanCheckGround()
+    {
+        yield return (new WaitForSeconds(.2f));
+        jumping = true;
     }
     private void CheckAndroidMovement()
     {
