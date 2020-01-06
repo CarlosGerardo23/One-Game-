@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float lowJumpMultiper = 2f;
     [SerializeField] int numberOfJumps;
     [SerializeField] float groundLimit;
-    [Range(1, 10)]
+    [Range(1, 100)]
     [SerializeField] float jumpVelocity;
     enum Plataform { ANDROID, UNITY }
 
@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     {
         CheckMovement(currentPlataform);
         CheckGorund();
+        RotAnim();
     }
 
     private void CheckGorund()
@@ -100,8 +101,13 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (rb.velocity.y > 0 && !Input.GetKeyDown(KeyCode.UpArrow))
         {
-            rb.velocity += Vector2.up * Physics2D.gravity * (lowJumpMultiper - 1) * Time.deltaTime;
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiper - 1) * Time.deltaTime;
         }
+    }
+
+    private void RotAnim()
+    {
+        transform.Rotate(Vector3.forward * -20 * Time.deltaTime * 25);
     }
 
 
