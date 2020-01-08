@@ -5,15 +5,12 @@ using UnityEngine;
 public class SaveScore : MonoBehaviour
 {
 
-    WorldManagment worldScore;
-    void Start()
-    {
-        worldScore = GetComponent<WorldManagment>();
-    }
+    [SerializeField]WorldManagment worldScore;
+    
 
     public void CheckHighScore()
     {
-        if (PlayerPrefs.HasKey("HighScore"))
+        if (!PlayerPrefs.HasKey("HighScore"))
         {
             int currentHighScore = PlayerPrefs.GetInt("HighScore");
             if (worldScore.score > currentHighScore)

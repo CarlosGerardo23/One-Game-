@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Events;
 public class PlayerData : MonoBehaviour
 {
-    public int score = 0;
     [SerializeField] int life;
 
     [SerializeField] UnityEvent playerDie;
@@ -16,10 +15,5 @@ public class PlayerData : MonoBehaviour
         {
             playerDie.Invoke();
         }
-    }
-
-    public void AddScore(int newScore)
-    {
-        score+=newScore;
     }
 }
