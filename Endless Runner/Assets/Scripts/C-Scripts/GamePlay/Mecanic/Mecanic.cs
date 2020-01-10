@@ -5,11 +5,12 @@ using UnityEngine;
 public abstract class Mecanic : ScriptableObject
 {
     protected MonoBehaviour player;
-    public void InitializeMecanic(MonoBehaviour objectReference)
+    public virtual void InitializeMecanic(MonoBehaviour objectReference)
     {
         player = objectReference;
     }
 
     public abstract void DoMecanic();
     
+
 }

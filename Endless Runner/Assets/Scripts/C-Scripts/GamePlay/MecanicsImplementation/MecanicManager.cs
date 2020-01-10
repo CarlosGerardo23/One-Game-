@@ -2,22 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName="MecanicManager")]
-public class MecanicManager : ScriptableObject
+public class MecanicManager : MonoBehaviour
 {
-   [SerializeField]List<MecanicImplementation> mecanics;
+    [SerializeField]MecanicData data;
+    // Start is called before the first frame update
+    void Start()
+    {
+        data.SetAllMecanics(this);
+    }
 
-   public void SetAllMecanics(MonoBehaviour objectReference)
-   {
-       foreach(var mec in mecanics)
-           mec.SetMecanic(objectReference);
-       
-   }
-
-   public void CheckAllMecanics()
-   {
-       foreach(var mec in mecanics)
-           mec.CheckMecanic();
-       
-   }
+    // Update is called once per frame
+    void Update()
+    {
+        data.CheckAllMecanics();
+    }
 }

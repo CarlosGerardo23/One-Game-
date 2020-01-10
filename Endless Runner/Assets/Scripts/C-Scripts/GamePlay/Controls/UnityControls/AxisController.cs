@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName="Controllers/AxisController")]
-public class AxisController : Controls
+public class AxisController : Controllers
 {
     public override bool CheckInput()
     {
        
-        if(Input.GetAxis(axisReference)==1)
+        if(Input.GetAxis(nameReference)==1)
         return true;
-        else 
+         
         return false;
     }
 }

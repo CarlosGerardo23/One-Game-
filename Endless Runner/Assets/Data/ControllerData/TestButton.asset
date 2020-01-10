@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01130b2d016f7fd409d7460f9aab67a5, type: 3}
-  m_Name: TestJump
+  m_Script: {fileID: 11500000, guid: 221bbe323e4225e47854590adfafcb47, type: 3}
+  m_Name: TestButton
   m_EditorClassIdentifier: 
-  fallMultiper: 2.5
-  lowJumpMultiper: 2
-  numberOfJumps: 2
-  groundLimit: -0.1332615
-  jumpVelocity: 12
-  currentsJumps: 8
+  nameReference: Jump

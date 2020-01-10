@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Controls : ScriptableObject
+public abstract class Controllers : ScriptableObject
 {
-    public string axisReference;
+   public string nameReference;
    public abstract bool CheckInput();
 }

@@ -14,11 +14,18 @@ public class JumpMecanic : Mecanic
     [SerializeField] int currentsJumps = 0;
     Rigidbody2D rb;
 
+
+    public override void InitializeMecanic(MonoBehaviour objectReference)
+    {
+        rb = objectReference.GetComponent<Rigidbody2D>();
+
+        currentsJumps = 0;
+    }
     public override void DoMecanic()
     {
         CheckMovement();
         CheckGorund();
-        RotAnim();
+
     }
     private void CheckGorund()
     {
@@ -27,6 +34,7 @@ public class JumpMecanic : Mecanic
     }
     private void Jump()
     {
+
         if (rb.velocity.y < 0)
             rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiper - 1) * Time.deltaTime;
         else if (rb.velocity.y > 0 && !Input.GetKeyDown(KeyCode.UpArrow))
@@ -36,17 +44,11 @@ public class JumpMecanic : Mecanic
 
     private void CheckMovement()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && currentsJumps < numberOfJumps)
-        {
-            currentsJumps += 1;
-            float currentJumpVelocity = jumpVelocity / currentsJumps;
-            rb.velocity = Vector2.up * currentJumpVelocity;
-            Jump();
-        }
+        currentsJumps += 1;
+        float currentJumpVelocity = jumpVelocity / currentsJumps;
+        rb.velocity = Vector2.up * currentJumpVelocity;
+        Jump();
+
     }
 
-    private void RotAnim()
-    {
-        player.transform.Rotate(Vector3.forward * -20 * Time.deltaTime * 25);
-    }
 }

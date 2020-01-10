@@ -37,8 +37,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        CheckMovement(currentPlataform);
-        CheckGorund();
+       // CheckMovement(currentPlataform);
+        //CheckGorund();
         RotAnim();
     }
 

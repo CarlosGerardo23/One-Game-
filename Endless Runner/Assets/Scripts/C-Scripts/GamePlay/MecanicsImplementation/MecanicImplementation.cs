@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class MecanicImplementation
 {
-    [SerializeField] Controls controls;
+    [SerializeField] Controllers controls;
     [SerializeField] Mecanic mecanic;
 
     public void SetMecanic(MonoBehaviour objectReference)
